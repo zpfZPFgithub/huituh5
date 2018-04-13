@@ -1,0 +1,43 @@
+{
+  "name": "huitu-h5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=development && webpack --mode development",
+    "dev": "cross-env NODE_ENV=development &&  webpack-dev-server --open --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "antd-mobile": "^2.1.8",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.6",
+    "html-withimg-loader": "^0.1.16",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.2.2",
+    "soshm": "^1.1.3",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.2",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.3.1",
+    "react-swipe": "^5.1.1",
+    "soshm": "^1.1.3",
+    "swipe-js-iso": "^2.0.4"
+  }
+}
