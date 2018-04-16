@@ -8,8 +8,9 @@ export default class TopHeader extends React.Component{
       };
     }
     showShare(){
+      let _t = this;
       soshm.popIn({
-        title: '弹窗分享',
+        title: _t.props.title,
         sites: ['weixin', 'weixintimeline', 'weibo', 'yixin', 'qzone', 'tqq', 'qq']
       });
     }
@@ -27,8 +28,8 @@ export default class TopHeader extends React.Component{
               this.props.bottomTitle=="1" ? (
                 <div>
                 <div className="topheader-second">
-                  <h3>专题《愚人节海报》</h3>
-                  <div className="font_family icon-fenxiang" onClick={this.showShare}></div>
+                  <h3>{this.props.title}</h3>
+                  <div className="font_family icon-fenxiang" onClick={this.showShare.bind(this)}></div>
                 </div>
                 <div className="topheader-holder" style={{height: '.73rem'}}></div>
                 </div>): null

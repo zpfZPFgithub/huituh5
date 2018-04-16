@@ -9,6 +9,7 @@ import Login from './pages/login'
 import Reg from './pages/reg'
 import Search from './pages/search'
 import Fav from './pages/fav'
+import App from "./App";
 /**
  * Router是路由容器
  * Route代表一条的路由规则
@@ -19,53 +20,23 @@ const  NoMatch = () => (
     </div>
 )
 
-/*
-
-<Router history={history}>
-                <Switch>
-                    <Route path='/'>
-                        <App>
-                            <Switch>
-                                <Route exact path='/' component={Login}/>
-                                <Route path='/home'>
-                                    <Home>
-                                        <Switch>
-                                            <Route exact path='/home' component={Admin}/>
-                                            <Route path='/home/order' component={Order}/>
-                                            <Redirect to='/home'/>
-                                        </Switch>
-                                    </Home>
-                                </Route>
-                                <Redirect to='/' />
-                            </Switch>
-                        </App>
-                    </Route>
-                </Switch>
-            </Router>  
-
-
-            <Router history={createHistory()}>
-         <Switch>
-         <Route path="/" exact component={Home}/>
-         <Route path="/home" component={Home}/>
-          <Route path="/search" component={Search}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/reg" component={Reg}/>
-          <Route component={NoMatch}/>
-         </Switch>
-       </Router>
-*/
+//引用store
+import {Provider} from 'react-redux';
+import store from  './redux/store';
+window._store = store; 
 ReactDOM.render(
-    <Router>
+    <Provider store={store}>
+        <Router>
     <Switch>
     <Route path="/home" exact component={Home}/>
      <Route path="/search" component={Search}/>
      <Route path="/login" component={Login}/>
      <Route path="/reg" component={Reg}/>
-     <Route path="/topic" component={Topic}/>
+     <Route path="/topic/:id" component={Topic}/>
      <Route path="/fav" component={Fav}/>
      <Redirect to="/home"/>
     </Switch>
-  </Router>,
+  </Router>
+    </Provider>,
     document.querySelector('#app')
 );
