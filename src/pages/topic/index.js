@@ -14,6 +14,7 @@ import * as action from '../../redux/actions/topic';
 @connect(state=>{
   return {
     topicPage:state.topic.topicPage,//将轮播图中的数据 映射到sliders身上
+    topics: state.topic.topics
   }
 },action)
 
@@ -26,12 +27,16 @@ export default class Topic extends React.Component{
     }
     componentWillMount(){
       this.props.getTopicPage();
-      console.log(this.props.topicPage)
+      this.props.getTopicTopics();
    }
    componentDidMount(){
       document.body.style.backgroundColor="#e9e7e4";
       let {match} = this.props;
       //console.log(match.params.id); 专辑id
+   }
+
+   loadMore(){
+     this.props.getTopicTopics();
    }
   
     render() {
@@ -39,15 +44,9 @@ export default class Topic extends React.Component{
         <section className="page-topic" ref='scroll'>
             <TopHeader bottomTitle="1" title={this.props.topicPage["title"]} />
             <div className="intro">{this.props.topicPage["intro"]}</div>
-            
-            <ScrollList element={this.refs.scroll}
-                loading={loading}
-                hasMore={hasMore}
-                loadMore={this.loadMore.bind(this)}>
-            <LessonList lists={this.props.lessons.list}/>
-            </ScrollList>
+            <TopicsList lists={this.props.topics.list}/>
+            <button onClick={this.loadMore.bind(this)}>获取更多</button>
         </section>
-        
       );
     }
   }

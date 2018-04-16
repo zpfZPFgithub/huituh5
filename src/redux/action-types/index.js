@@ -8,3 +8,6 @@ export const GET_HOME_TOPICS = 'GET_HOME_TOPICS';
 
 // 获取专题列表页面数据
 export const GET_TOPIC_PAGE = 'GET_TOPIC_PAGE';
+
+// 获取专题列表专题数据
+export const GET_TOPIC_TOPICS = 'GET_TOPIC_TOPICS';

@@ -19,7 +19,7 @@ export const getSlider = () => (dispatch,getState)=>{
             type: Types.GET_SLIDERS,
             sliders: [1,2]
         })
-   }, 2000)
+   }, 200)
 };
 export const getHomeTopics = () => (dispatch,getState)=>{
     setTimeout(function(){
@@ -27,7 +27,7 @@ export const getHomeTopics = () => (dispatch,getState)=>{
             type: Types.GET_HOME_TOPICS,
             homeTopics: [3,4,6,8]
         })
-   }, 2000)
+   }, 200)
 };
 
 

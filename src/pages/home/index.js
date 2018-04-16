@@ -58,7 +58,7 @@ export default class Home extends React.Component{
               <div>
                 {
                   this.props.homeTopics.length ? this.props.homeTopics.map((list, index)=>(
-                    <a style={{width: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",height: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",margingBottom:"1px", marginLeft:(index%2==0?"0":"1")+"px"}} key={index} className="topic" href="#/topic">
+                    <a style={{width: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",height: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",margingBottom:"1px", marginLeft:(index%2==0?"0":"1")+"px"}} key={index} className="topic" href="#/topic/5">
                       <img src="http://img18.3lian.com/d/file/201709/21/2fbe1b0b18376a1eafa817542c9d07be.jpg" />
                       <div className="bg"><div></div></div>
                       <div className="bg-text"><div>美女图片</div></div>
