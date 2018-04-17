@@ -9,6 +9,7 @@ import Login from './pages/login'
 import Reg from './pages/reg'
 import Search from './pages/search'
 import Fav from './pages/fav'
+import Detail from './pages/detail'
 import App from "./App";
 /**
  * Router是路由容器
@@ -34,6 +35,7 @@ ReactDOM.render(
      <Route path="/reg" component={Reg}/>
      <Route path="/topic/:id" component={Topic}/>
      <Route path="/fav" component={Fav}/>
+     <Route path="/detail" component={Detail}/>
      <Redirect to="/home"/>
     </Switch>
   </Router>

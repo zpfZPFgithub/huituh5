@@ -17,6 +17,11 @@ export const reg = (user) => (dispatch,getState)=>{
         //dispatch(push('/login'));
         history.push('/login');
       }
+    }, ()=>{
+      dispatch({
+        type:types.REG,
+        payload:{regResultMsg: "系统错误，请稍后再试"}
+      });
     })
 };
 

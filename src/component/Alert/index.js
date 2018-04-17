@@ -11,7 +11,7 @@ export default class Alert extends React.Component{
   }
   render() {
       return (
-        <div className="c-alert"><span className="txt">测试猜测是发达</span></div> 
+        this.props.isshow?<div className="c-alert"><span className="txt">{this.props.alertMsg}</span></div> : null
       );
   }
 }

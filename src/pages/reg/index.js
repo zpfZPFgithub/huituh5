@@ -9,13 +9,15 @@ import * as action from '../../redux/actions/user';
 @connect(state=>{
   return {
     getMobileCodeStatues: state.user.getMobileCodeStatues, // 获取验证码的状态
-    remainSecond: state.user.remainSecond // 获取验证码剩余的秒数
+    remainSecond: state.user.remainSecond, // 获取验证码剩余的秒数
+    regResultMsg: state.user.regResultMsg
   }
 },action)
 
 export default class Reg extends React.Component{
     constructor(props) {
       super(props);
+      this.state = {showAlert: false};
     }
     
     componentDidMount(){
@@ -64,7 +66,30 @@ export default class Reg extends React.Component{
       let code = this.mobileCode.value;
       let nickName = this.userName.value;
       let pwd = this.password.value;
-      this.props.reg({mobile, code, nickName, pwd});
+      let msg = "";
+      if(!mobile || mobile.length<11) {
+        msg = "请输入正确的手机号码";
+      }else if(!code || code.length<5){
+        msg = "请输入正确的验证码";
+      }else if(!nickName){
+        msg = "请输入正确的昵称";
+      }else if(!pwd){
+        msg = "请输入正确的密码";
+      }
+      if(msg){
+        this.setState({
+          showAlert: true,
+          alertMsg: msg
+        })
+        setTimeout(()=>{
+          this.setState({
+            showAlert: false,
+            alertMsg: ""
+          })
+        }, 2000)
+      }else{
+        this.props.reg({mobile, code, nickName, pwd});
+      }
     }
     handleCode = ()=>{
       let mobile = this.mobile.value;
@@ -99,7 +124,7 @@ export default class Reg extends React.Component{
                 <a href="">《委托代收待付款协议》</a>
               </div>
             </div>
-            <Alert />
+            <Alert isshow={this.state.showAlert || this.props.regResultMsg} alertMsg={this.state.alertMsg || this.props.regResultMsg} />
         </section>
       );
     }
