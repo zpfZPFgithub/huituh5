@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import {home} from './home';
 import {topic} from './topic';
-
+import {user} from './user';
 import {routerReducer} from 'react-router-redux'
 //state => state.home.currentLesson
 //  => state.aa.xxx
@@ -9,5 +9,6 @@ import {routerReducer} from 'react-router-redux'
 export default combineReducers({
     home,
     topic,
+    user,
     router:routerReducer
 });//导出合并后的reducer;

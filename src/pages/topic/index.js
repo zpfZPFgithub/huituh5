@@ -40,12 +40,25 @@ export default class Topic extends React.Component{
    }
   
     render() {
+      let {loading,hasMore} = this.props.topics;
       return (
         <section className="page-topic" ref='scroll'>
             <TopHeader bottomTitle="1" title={this.props.topicPage["title"]} />
             <div className="intro">{this.props.topicPage["intro"]}</div>
+            {/*scrollList 要接收几个参数
+                param1:element 哪个组件需要绑定scroll事件
+                param2:loading 是否正在加载
+                param3:hasMore 是否有更多
+                param4:loadMore加载更多
+            */}
+             <ScrollList element={this.refs.scroll}
+                loading={loading}
+                hasMore={hasMore}
+                loadMore={this.loadMore.bind(this)}
+              >
             <TopicsList lists={this.props.topics.list}/>
-            <button onClick={this.loadMore.bind(this)}>获取更多</button>
+            </ScrollList>
+            <div style={{textAlign: "center", padding: "15px 0", color: "#999", fontSize: "14px"}} onClick={this.loadMore.bind(this)}>下拉加载更多</div>
         </section>
       );
     }

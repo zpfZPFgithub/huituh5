@@ -11,3 +11,9 @@ export const GET_TOPIC_PAGE = 'GET_TOPIC_PAGE';
 
 // 获取专题列表专题数据
 export const GET_TOPIC_TOPICS = 'GET_TOPIC_TOPICS';
+
+// 注册
+export const REG = 'REG';
+
+// 获取注册验证码
+export const GET_MOBILE_CODE = 'GET_MOBILE_CODE';

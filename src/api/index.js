@@ -6,7 +6,8 @@ const get = (option) => {
          axios({
              url:option.url,
              method:option.type||'post',
-             data:JSON.stringify(option.data||''),
+             data:option.data||{},
+             withCredentials:option.withCredentials || true,
              timeout:8000,
              baseURL:option.baseURL,
          }).then((response)=>{

@@ -22,6 +22,7 @@ body{font-size: 14px}
 .fl{float:left;}
 .fr{float:right;}
 .btn{padding:5px 15px;background: #fe7800;font-size:14px;color: #ffffff;border: 1px solid #ff6600; border-radius: 4px;vertical-align:middle;display: inline-block;text-align: center;cursor:pointer}
+.btn-skin1{background:#3A90DA;border:1px solid #3A90DA}
 
 /*
 组件
@@ -37,8 +38,11 @@ body{font-size: 14px}
 .topheader-second .icon-fenxiang{position: absolute;right:.3rem;top:0;font-size: .42rem;color:#3C3A38}
 .detailheader-top{background: #faf7f3;font-size:14px;border-bottom:1px solid #cbc9c6;height:.73rem;line-height:.73rem;position: fixed;top:0;left:0;width:100%;text-align:center;}
 .detailheader-top .title{font-size:16px;}
-.detailheader-top .back{position: absolute;left:.26rem;color:#a5a29e;}
+.detailheader-top .font_family{position: absolute;left:.26rem;color:#a5a29e;}
 .detailheader-holder{height: .73rem;width:100%;margin-bottom: .3rem;}
+.c-alert{position: fixed;left: 0;top: 50%;width:100%;text-align: center}
+.c-alert .txt{padding: 10px 20px;background-color: rgba(0, 0, 0, .8);color: #fff;border-radius: 5px;display: inline-block;margin-top:-.3rem;}
+
 /*
 * 页面
 */
@@ -55,6 +59,8 @@ body{font-size: 14px}
 .form-outer .opera{margin-top:.45rem;}
 .form-outer .opera a:nth-of-type(1){float:left;margin-left: .28rem;}
 .form-outer .opera a:nth-of-type(2){float: right;margin-right: .28rem;}
+.form-outer .code-li input{width:3.48rem;padding-left: .2rem}
+.form-outer .code-li .btn{width:2.3rem;padding: 0;height:.76rem;line-height: .76rem;margin-left:.2rem}
 .form-outer .rules{font-size: 12px;margin-top:.3rem;vertical-align: middle;}
 .form-outer .rules span, .form-outer .rules input, .form-outer .rules a{vertical-align: middle}
 .form-outer .rules a{color:#386CB9}
@@ -77,8 +83,8 @@ body{font-size: 14px}
 .home-bottom p:nth-of-type(1){margin-top:.32rem;}
 .home-bottom p span{vertical-align: middle;margin-right:.25rem;}
 .qq-bg{background: url(images/qq.png);display:inline-block;width:2.09rem;height:.6rem;background-size: 2.09rem .6rem;}
-.page-topic{width:6.8rem;margin:0 auto;margin-top:.3rem;}
-.page-topic .intro{width:6.35rem;background: #FFFFD5;border:1px solid #FFBD7C;border-radius:4px;word-wrap: break-word;padding:.2rem;}
+.page-topic{width:6.8rem;margin:0 auto;}
+.page-topic .intro{width:6.35rem;background: #FFFFD5;border:1px solid #FFBD7C;border-radius:4px;word-wrap: break-word;padding:.2rem;margin:.3rem 0;}
 .page-topic .topic-wrap{overflow: hidden;margin-top:.3rem;}
 .page-topic .topic-list{width:3.25rem;height:3.25rem;line-height:3.25rem;background:#FCF7F4;border:1px solid #CBC9C5;text-align:center;display: block;margin-bottom:.2rem;}
 .page-topic .topic-list img{max-width:2.7rem;max-height:2.7rem;vertical-align: middle;}
