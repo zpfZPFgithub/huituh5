@@ -48,7 +48,7 @@ body{font-size: 14px}
 */
 .home-slider{position:relative}
 .carousel {position: relative;}
-.carousel img{width:100%;}
+.carousel img{max-width:100%;}
 .home-slider .dots{width: 100%;position: absolute;bottom: 10px;justify-content: center;display: flex;}
 .home-slider .dots span{ display: flex;width: 10px;height: 10px;background: #fff;opacity:0.3;border-radius: 50%;margin:0 5px;}
 .home-slider .dots .active{opacity:1;}
@@ -88,6 +88,15 @@ body{font-size: 14px}
 .page-topic .topic-wrap{overflow: hidden;margin-top:.3rem;}
 .page-topic .topic-list{width:3.25rem;height:3.25rem;line-height:3.25rem;background:#FCF7F4;border:1px solid #CBC9C5;text-align:center;display: block;margin-bottom:.2rem;}
 .page-topic .topic-list img{max-width:2.7rem;max-height:2.7rem;vertical-align: middle;}
-.detail-wrap{width:100%;height:100%;position: absolute;left:0;top:0;}
-.detail-wrap .img-outer{width:100%;height:100%; display: flex; flex-direction: row;align-items: center; /*垂直居中*/justify-content: center; /*水平居中*/}
-.detail-wrap .big-image{max-width: 80%;max-height: 80%;vertical-align: middle;}
+.detail-wrap{width:100%;height:100%;position: fixed;left:0;top:0;overflow: hidden;background: #000;}
+.detail-wrap .img-outer{width:100%;height:100%; display: flex;  flex-direction: row;align-items: center; /*垂直居中*/justify-content: center; /*水平居中*/}
+.detail-wrap img{max-width: 80%;max-height: 80%;vertical-align: middle;}
+.detail-wrap .font_family{position:fixed;color:#fff;font-size:.32rem;}
+
+.search-type{height:.73rem;width:100%;line-height: .73rem;text-align:center;position: fixed;border-bottom: 1px solid #CBC9C5;background:#FCF7F4}
+.search-bar{height:.73rem;width:100%;position: fixed;border-bottom: 1px solid #CBC9C5;background: #FCF7F4;}
+.search-bar-item{position: absolute;top:0;left:0;width:25%;border-right: 1px solid #CBC9C5;height:.73rem;line-height: .73rem;text-align:center;}
+.search-bar-item:nth-of-type(2){left:25%;}
+.search-bar-item:nth-of-type(3){left:50%;}
+.search-bar-item:nth-of-type(4){left:75%;border-right: 0;}
+.search-bar-item-on{background: #3D3C3A;color:#fff;}

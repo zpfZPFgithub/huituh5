@@ -17,3 +17,9 @@ export const REG = 'REG';
 
 // 获取注册验证码
 export const GET_MOBILE_CODE = 'GET_MOBILE_CODE';
+
+// 获取搜索列表页面数据
+export const GET_SEARCH_LIST = 'GET_SEARCH_LIST';
+
+// 获取收藏列表页面数据
+export const GET_FAV_LIST = 'GET_FAV_LIST';

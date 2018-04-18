@@ -34,6 +34,27 @@ export default class TopHeader extends React.Component{
                 <div className="topheader-holder" style={{height: '.73rem'}}></div>
                 </div>): null
             }
+            {
+              this.props.searchType ? (
+                <div>
+                  <div style={{top: ".9rem"}} className="search-type">普通作品</div>
+                  <div className="topheader-holder" style={{height: '.73rem'}}></div>
+                </div>
+              ) : null
+            }
+            {
+              this.props.searchType == 2 ? (
+                <div>
+                  <div style={{top: "1.63rem", "marginTop": "1px"}} className="search-bar">
+                    <div className="search-bar-item">综合排序</div>
+                    <div className="search-bar-item search-bar-item-on">全部作品</div>
+                    <div className="search-bar-item">设计</div>
+                    <div className="search-bar-item">摄影</div>
+                  </div>
+                  <div className="topheader-holder" style={{height: '.73rem'}}></div>
+                </div>
+              ) : null
+            }
             
             
         </section>

@@ -58,7 +58,7 @@ export default class Topic extends React.Component{
               >
             <TopicsList lists={this.props.topics.list}/>
             </ScrollList>
-            <div style={{textAlign: "center", padding: "15px 0", color: "#999", fontSize: "14px"}} onClick={this.loadMore.bind(this)}>下拉加载更多</div>
+            <div style={{textAlign: "center", padding: "15px 0", color: "#999", fontSize: "14px"}} onClick={this.loadMore.bind(this)}>正在加载更多</div>
         </section>
       );
     }
