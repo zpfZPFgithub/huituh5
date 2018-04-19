@@ -23,6 +23,7 @@ body{font-size: 14px}
 .fr{float:right;}
 .btn{padding:5px 15px;background: #fe7800;font-size:14px;color: #ffffff;border: 1px solid #ff6600; border-radius: 4px;vertical-align:middle;display: inline-block;text-align: center;cursor:pointer}
 .btn-skin1{background:#3A90DA;border:1px solid #3A90DA}
+.triangle {display:inline-block;height: 0;width: 0;border-right: 5px solid transparent;border-top: 5px solid #7C7773;border-left: 5px solid transparent;}
 
 /*
 组件
@@ -47,11 +48,23 @@ body{font-size: 14px}
 * 页面
 */
 .home-slider{position:relative}
-.carousel {position: relative;}
+.carousel {position: relative;color:#fff;}
 .carousel img{max-width:100%;}
 .home-slider .dots{width: 100%;position: absolute;bottom: 10px;justify-content: center;display: flex;}
 .home-slider .dots span{ display: flex;width: 10px;height: 10px;background: #fff;opacity:0.3;border-radius: 50%;margin:0 5px;}
 .home-slider .dots .active{opacity:1;}
+
+.detail-wrap{width:100%;height:100%;position: fixed;left:0;top:0;overflow: hidden;background: #000;}
+.detail-wrap .font_family{position:fixed;color:#fff;font-size:.32rem;}
+.detail-wrap .swipe-wrap {overflow: hidden;position: relative;text-align: center;}
+.detail-wrap .swipe-wrap > .img-outer {float:left;width:100%;position: relative;}
+.detail-wrap .img-wrap{width:100%;display: flex;  flex-direction: row;align-items: center;justify-content: center;}
+.detail-wrap .img-wrap img{max-width: 100%;max-height: 100%;width:100%;height:80%;vertical-align: middle;}
+.detail-wrap .picInfo{background-color: rgba(0, 0, 0, .3);width:100%;height:2.6rem;position:fixed;bottom:0;left:0;color:#fff;font-size:.24rem;line-height: .36rem}
+.detail-wrap .picInfo span{display: inline-block;vertical-align: middle}
+.detail-wrap .pi-l{float:left;margin:.25rem 0 0 .25rem;width:2.4rem;}
+.detail-wrap .pi-r{float:left;margin:.25rem 0 0 .2rem;width:4.2rem;}
+.limit-w{display: inline-block;max-width: 1.4rem;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;vertical-align: middle;}
 
 .form-outer{width:84%;margin:0 auto;}
 .form-outer input[type=text], .form-outer input[type=password]{width:95%;height:.78rem;margin-bottom: .2rem;padding-left:5%;font-size:14px;border:1px solid #cbc9c6;border-radius: 4px;}
@@ -88,15 +101,17 @@ body{font-size: 14px}
 .page-topic .topic-wrap{overflow: hidden;margin-top:.3rem;}
 .page-topic .topic-list{width:3.25rem;height:3.25rem;line-height:3.25rem;background:#FCF7F4;border:1px solid #CBC9C5;text-align:center;display: block;margin-bottom:.2rem;}
 .page-topic .topic-list img{max-width:2.7rem;max-height:2.7rem;vertical-align: middle;}
-.detail-wrap{width:100%;height:100%;position: fixed;left:0;top:0;overflow: hidden;background: #000;}
-.detail-wrap .img-outer{width:100%;height:100%; display: flex;  flex-direction: row;align-items: center; /*垂直居中*/justify-content: center; /*水平居中*/}
-.detail-wrap img{max-width: 80%;max-height: 80%;vertical-align: middle;}
-.detail-wrap .font_family{position:fixed;color:#fff;font-size:.32rem;}
 
 .search-type{height:.73rem;width:100%;line-height: .73rem;text-align:center;position: fixed;border-bottom: 1px solid #CBC9C5;background:#FCF7F4}
+.page-search .triangle{margin-left: .16rem;margin-top:-4px;position: relative;top:-2px;}
 .search-bar{height:.73rem;width:100%;position: fixed;border-bottom: 1px solid #CBC9C5;background: #FCF7F4;}
 .search-bar-item{position: absolute;top:0;left:0;width:25%;border-right: 1px solid #CBC9C5;height:.73rem;line-height: .73rem;text-align:center;}
 .search-bar-item:nth-of-type(2){left:25%;}
 .search-bar-item:nth-of-type(3){left:50%;}
 .search-bar-item:nth-of-type(4){left:75%;border-right: 0;}
 .search-bar-item-on{background: #3D3C3A;color:#fff;}
+.search-scroll-wrap{position:absolute;width:100%;height:100%;position: fixed;left:0;top:2.35rem;overflow:scroll;}
+.search-select{position: absolute;border:1px solid #CDC8C5;background:#FCF7F4;padding:.1rem 0 .1rem .3rem;width:1.9rem;z-index:5;left:50%;margin-left:-1.1rem;top:1.5rem;border-radius:.05rem}
+.search-select .select-list{padding:.1rem 0;}
+.search-select-1{left:0;margin:0;top:2.35rem;padding:0;width:25%;border-radius: 0 0 .05rem .05rem;border-left:0;text-align:center;}
+.search-select-1 .select-list{margin-left:-.34rem;}

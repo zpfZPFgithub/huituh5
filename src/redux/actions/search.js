@@ -11,6 +11,7 @@ export const getSearchList = () => (dispatch,getState)=>{
     if(!hasMore){
         return;
     }
+    console.log("actionstart: getSearchList")
     setTimeout(function(){
         dispatch({
             type: Types.GET_SEARCH_LIST,

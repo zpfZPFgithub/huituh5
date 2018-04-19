@@ -7,14 +7,15 @@ let leftArr = [],rightArr = [];
 leftArr.h = 0;rightArr.h=0;
 
 function processData(result){
-    let baseLength = leftArr.length+rightArr.length;
+    leftArr = [],rightArr = [];
+    leftArr.h = 0;rightArr.h=0;
     result.lists.forEach(function(item,index){
         let _pixArr = item.pic_view_pixel.split("x")
         if(_pixArr.length == 2){
             let _w = parseFloat(_pixArr[0]), _h = parseFloat(_pixArr[1]);
             let h = _h*pWidth/_w;
             item.calculatedW = pWidth, item.calculatedH = h;
-            item.index = baseLength+index;
+            item.index = index;
             if(leftArr.h > rightArr.h){
                 rightArr.push(item)
                 rightArr.h += h;
@@ -29,8 +30,6 @@ function processData(result){
 export default class LessonList extends Component{
     constructor(props) {
         super(props);
-        leftArr = [],rightArr = [];
-        leftArr.h = 0;rightArr.h=0;
         this.state = {
             leftColumn : [],
             rightColumn: []
@@ -39,6 +38,13 @@ export default class LessonList extends Component{
     componentWillMount(){
       
     }
+    shouldComponentUpdate(nextProps,nextState){
+        if(this.props.lists.length != nextProps.lists.length){
+            return true;
+        }
+        return false; //子组件判断接收的属性 是否满足更新条件 为true则更新
+    }
+    
     componentWillReceiveProps(nextProps){
         let r = processData(nextProps);
         this.setState({
