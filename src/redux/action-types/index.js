@@ -18,6 +18,12 @@ export const REG = 'REG';
 // 获取注册验证码
 export const GET_MOBILE_CODE = 'GET_MOBILE_CODE';
 
+// 登录
+export const LOGIN = 'LOGIN';
+
+// 退出登录
+export const LOGIN_OUT = 'LOGIN_OUT';
+
 // 获取搜索列表页面数据
 export const GET_SEARCH_LIST = 'GET_SEARCH_LIST';
 

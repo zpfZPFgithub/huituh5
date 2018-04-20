@@ -25,6 +25,23 @@ export default class TopHeader extends React.Component{
         showSortSelect: !this.state.showSortSelect
       })
     }
+    goSearch(e){
+      if(this.searchKey.value) {
+        location.href="#/search?key="+this.searchKey.value;
+        location.reload()
+      }
+    }
+    goSearch1(e){
+      if(e.keyCode==13 && this.searchKey.value) {
+        location.href="#/search?key="+this.searchKey.value;
+        location.reload();
+      }
+    }
+    componentDidMount(){
+      if(this.props.searchType && this.props.urlO && this.props.urlO.key){
+        this.searchKey.value=this.props.urlO.key;
+      }
+    }
     render() {
       if(this.props.searchType && this.props.urlO){
         var sortName="综合排序";
@@ -38,8 +55,8 @@ export default class TopHeader extends React.Component{
       return (
         <section>
             <div className="topheader-top">
-                <a href="/" className="font_family icon-shouye"></a>
-                <div className="ipt-wrap"><input type="text" /><span className="font_family icon-sousuo btn-s"></span></div>
+                <a href="#/home" className="font_family icon-shouye"></a>
+                <div className="ipt-wrap"><input ref={input=>this.searchKey=input} onKeyDown={this.goSearch1.bind(this)} type="text" /><span onClick={this.goSearch.bind(this)} className="font_family icon-sousuo btn-s"></span></div>
                 <a href="/#/accounts" className="font_family icon-zhanghu"></a>
             </div>
             <div className="topheader-holder"></div>

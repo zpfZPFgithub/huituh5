@@ -8,6 +8,7 @@ import '../../styles/iconfont/iconfont.css'
 import * as action from '../../redux/actions/home';
 
 @connect(state=>{
+  console.log(state.home.sliders)
   return {
     sliders:state.home.sliders,//将轮播图中的数据 映射到sliders身上
     homeTopics: state.home.homeTopics
@@ -58,10 +59,10 @@ export default class Home extends React.Component{
               <div>
                 {
                   this.props.homeTopics.length ? this.props.homeTopics.map((list, index)=>(
-                    <a style={{width: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",height: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",margingBottom:"1px", marginLeft:(index%2==0?"0":"1")+"px"}} key={index} className="topic" href="#/topic/5">
-                      <img src="http://img18.3lian.com/d/file/201709/21/2fbe1b0b18376a1eafa817542c9d07be.jpg" />
+                    <a href={"#/topic/"+list.Id} style={{width: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",height: (index%2==0?(this.state.winW/2-1):(this.state.winW/2))+"px",margingBottom:"1px", marginLeft:(index%2==0?"0":"1")+"px"}} key={index} className="topic">
+                      <img src={list.Img} />
                       <div className="bg"><div></div></div>
-                      <div className="bg-text"><div>美女图片</div></div>
+                      <div className="bg-text"><div>{list.Name}</div></div>
                     </a>
                   )):null
                 }

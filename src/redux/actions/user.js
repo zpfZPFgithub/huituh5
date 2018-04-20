@@ -1,52 +1,39 @@
-/**
- * 珠峰培训 http://www.zhufengpeixun.cn
- */
 import * as types from '../action-types';
 import {regAjax,loginAjax, getMobileCodeAjax} from '../../api/ajax/user';
 
 // 注册
 export const reg = (user) => (dispatch,getState)=>{
     regAjax(user).then(result=>{
-      console.log(result);
-      let {code,success,error} = result;
+      let {code,message} = result;
       dispatch({
         type:types.REG,
-        payload:{success,error}
+        payload:{code,msg: message}
       });
-      if(code == 0){//code=0表示成功 成功后跳到登录页
-        //dispatch(push('/login'));
-        history.push('/login');
-      }
     }, ()=>{
       dispatch({
         type:types.REG,
-        payload:{regResultMsg: "系统错误，请稍后再试"}
+        payload:{code,msg: message}
       });
     })
+};
+// 重置注册信息
+export const resetReg = () => (dispatch,getState)=>{
+    dispatch({
+      type:types.REG,
+      payload:{code:"",msg: ""}
+    });
 };
 
 // 获取手机验证码
 export const getMobileCode = (user) => (dispatch,getState)=>{
-  /*
   getMobileCodeAjax(user).then(result=>{
-    let {code,success,error} = result;
-    dispatch({
-      type:types.GET_MOBILE_CODE,
-      payload:{}
-    });
-    if(code == 0){//code=0表示成功 成功后跳到登录页
-      //dispatch(push('/login'));
-      history.push('/login');
-    }
-  })
-  */
-  
-  setTimeout(function(){
     let remainSecond = 60;
+    let {code,message} = result;
     dispatch({
       type:types.GET_MOBILE_CODE,
-      payload:{getMobileCodeStatues: 1, remainSecond: 60}
+      payload:{code,msg: message, remainSecond: code==1?60:0}
     });
+    if(code != 1) return;
     let timer = setInterval(()=>{
       remainSecond = remainSecond - 1;
       if(remainSecond < 0){
@@ -55,9 +42,25 @@ export const getMobileCode = (user) => (dispatch,getState)=>{
       }
       dispatch({
         type:types.GET_MOBILE_CODE,
-        payload:{getMobileCodeStatues: 1, remainSecond: remainSecond}
+        payload:{remainSecond: remainSecond}
       });
     }, 1000)
-  }, 300)
-
+  })
+}
+// 登录
+export const login = (user) => (dispatch,getState)=>{
+  loginAjax(user).then(result=>{
+    let {code,message} = result;
+    dispatch({
+      type:types.LOGIN,
+      payload:{code,msg: message}
+    });
+  }, ()=>{
+    dispatch({
+      type:types.LOGIN,
+      payload:{code,msg: message}
+    });
+  })
 };
+
+

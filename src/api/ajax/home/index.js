@@ -13,7 +13,7 @@ export function getSliders() {
 export function getTopic() {
     return get({
         url:urls.home_getBigPics,
-        data:{type:0}
+        data:{type:1}
     });
 }
 

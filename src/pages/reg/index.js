@@ -7,10 +7,12 @@ import {connect} from 'react-redux';
 import '../../styles/common.css';
 import * as action from '../../redux/actions/user';
 @connect(state=>{
+  console.log("page:reg state",state)
   return {
     getMobileCodeStatues: state.user.getMobileCodeStatues, // 获取验证码的状态
     remainSecond: state.user.remainSecond, // 获取验证码剩余的秒数
-    regResultMsg: state.user.regResultMsg
+    code: state.user.code,
+    msg: state.user.msg,
   }
 },action)
 
@@ -78,23 +80,20 @@ export default class Reg extends React.Component{
       }
       if(msg){
         this.setState({
-          showAlert: true,
           alertMsg: msg
         })
-        setTimeout(()=>{
-          this.setState({
-            showAlert: false,
-            alertMsg: ""
-          })
-        }, 2000)
       }else{
+        this.setState({
+          alertMsg: ""
+        })
+        this.props.resetReg();
         this.props.reg({mobile, code, nickName, pwd});
       }
     }
     handleCode = ()=>{
       let mobile = this.mobile.value;
       if(!this.props.remainSecond)
-        this.props.getMobileCode();
+        this.props.getMobileCode({mobile});
     }
     render() {
       return (
@@ -110,7 +109,6 @@ export default class Reg extends React.Component{
                 </li>
                 <li className="code-li">
                   <input ref={input=>this.mobileCode=input} type="text" placeholder="验证码" />
-                  {/* <span onClick={this.handleCode.bind(this)} className="btn btn-skin1">{this.props.getMobileCodeStatues == 1 ? this.state.remainSecond : "发送验证码"}</span> */}
                   <GetMobileBtn handleCode={this.handleCode.bind(this)} code={this.props.getMobileCodeStatues} remainSecond={this.props.remainSecond}/>
                 </li>
                 <li><input ref={input=>this.userName=input} type="text" placeholder="用户名"  /></li>
@@ -124,7 +122,7 @@ export default class Reg extends React.Component{
                 <a href="">《委托代收待付款协议》</a>
               </div>
             </div>
-            <Alert isshow={this.state.showAlert || this.props.regResultMsg} alertMsg={this.state.alertMsg || this.props.regResultMsg} />
+            <Alert sysMsg={this.props.msg} alertMsg={this.state.alertMsg} />
         </section>
       );
     }

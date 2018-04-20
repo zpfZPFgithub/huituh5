@@ -3,6 +3,14 @@ import axios from 'axios'
 
 const get = (option) => {
      return new Promise ((resolve,reject)=>{
+         console.log({
+            url:option.url,
+            method:option.type||'post',
+            data:option.data||{},
+            withCredentials:option.withCredentials || true,
+            timeout:8000,
+            baseURL:option.baseURL,
+        })
          axios({
              url:option.url,
              method:option.type||'post',
