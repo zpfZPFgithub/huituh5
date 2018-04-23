@@ -1,6 +1,3 @@
-
-//所有的home请求 都存在这里
-
 import get from '../../index';
 import urls from '../../urls';
 
@@ -31,10 +28,11 @@ export function loginAjax(user) {
     });
 }
 
-//展示简单个人信息数据
-export function getShortUserInfoAjax() {
+// 收藏数据
+export function getFavsAjax(data) {
     return get({
-        url:getShortUserInfo
+        data:data,
+        url:urls.getFavs
     });
 }
 

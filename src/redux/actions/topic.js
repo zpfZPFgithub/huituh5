@@ -1,14 +1,7 @@
 import * as Types from '../action-types';
+import {getTopicList} from '../../api/ajax/home';
 
 // 获取专题页面第一屏展示数据
-export const getTopicPage = () => (dispatch,getState)=>{
-    setTimeout(function(){
-        dispatch({
-            type: Types.GET_TOPIC_PAGE,
-            topicPage: {title:"测试测试", intro: '测试测试测试测试测试测试测试测试测试测试测试测试测试'}
-        })
-   }, 300)
-};
 
 // 获取专题页面所有专题下拉数据
 export const getTopicTopics = () => (dispatch,getState)=>{
@@ -21,13 +14,25 @@ export const getTopicTopics = () => (dispatch,getState)=>{
     if(!hasMore){
         return;
     }
-    setTimeout(function(){
+
+    getTopicList({pageIndex: offset, pageSize: 100, topicId: parseInt(location.href.split("topic/")[1])}).then(result=>{
+        if(offset==1){
+            let title = result.Topic["title"];
+            if(title && title.length>12) title = title.substring(0, 12)+"...";
+            dispatch({
+                type: Types.GET_TOPIC_PAGE,
+                topicPage: {title:"专题《"+title+"》", intro: result.Topic["remark"]}
+            })
+        }
         dispatch({
             type: Types.GET_TOPIC_TOPICS,
-            hasMore: true,
-            topics: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+            hasMore: result.PicList.length<100?false:true,
+            topics: result.PicList
         })
-   }, 300)
+        console.log(result)
+    })
+
+    
 };
 
 

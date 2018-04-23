@@ -23,6 +23,8 @@ body{font-size: 14px}
 .fr{float:right;}
 .btn{padding:5px 15px;background: #fe7800;font-size:14px;color: #ffffff;border: 1px solid #ff6600; border-radius: 4px;vertical-align:middle;display: inline-block;text-align: center;cursor:pointer}
 .btn-skin1{background:#3A90DA;border:1px solid #3A90DA}
+.btn-skin2{background:#97928F;border:1px solid #97928F}
+.btn-skin3{background:#FF0000;border:1px solid #FF0000}
 .triangle {display:inline-block;height: 0;width: 0;border-right: 5px solid transparent;border-top: 5px solid #7C7773;border-left: 5px solid transparent;}
 
 /*
@@ -88,20 +90,44 @@ body{font-size: 14px}
 .home-topic .topic .bg div{width:2rem;height:.5rem;margin:0 auto;background:#000;opacity: .6;border-radius:.5rem;}
 .home-topic .topic .bg-text div{width:2rem;height:.5rem;margin:0 auto;color:#fff;text-align:center;font-size:.2px;line-height:.5rem; }
 .h5pc-wrap{text-align:center;}
-.h5pc-wrap a{width:2.7rem;height:.8rem;line-height: .8rem;font-size:.32rem;padding:0;vertical-align: middle;background: #888384;border:1px solid #888384;}
+.h5pc-wrap a{width:2.7rem;height:.8rem;line-height: .8rem;font-size:.32rem;padding:0;background: #fff;border:1px solid #B2A7A8;color:#B2A8A6;vertical-align: middle;}
 .h5pc-wrap a label{font-size:.42rem;vertical-align: middle;margin-right: .12rem}
-.h5pc-wrap a:nth-of-type(2){margin-left:.8rem;background: #fff;border:1px solid #B2A7A8;color:#B2A8A6;}
+.h5pc-wrap .aOn{margin-left:.4rem;background: #888384;border:1px solid #888384;color:#fff}
 .home-bottom{padding-bottom:1rem;}
 .home-bottom p{color:#867F7F;font-size:.3rem;margin-top:.22rem;padding-left: .35rem;}
 .home-bottom p:nth-of-type(1){margin-top:.32rem;}
 .home-bottom p span{vertical-align: middle;margin-right:.25rem;}
 .qq-bg{background: url(images/qq.png);display:inline-block;width:2.09rem;height:.6rem;background-size: 2.09rem .6rem;}
-.page-topic{width:6.8rem;margin:0 auto;}
-.page-topic .intro{width:6.35rem;background: #FFFFD5;border:1px solid #FFBD7C;border-radius:4px;word-wrap: break-word;padding:.2rem;margin:.3rem 0;}
-.page-topic .topic-wrap{overflow: hidden;margin-top:.3rem;}
-.page-topic .topic-list{width:3.25rem;height:3.25rem;line-height:3.25rem;background:#FCF7F4;border:1px solid #CBC9C5;text-align:center;display: block;margin-bottom:.2rem;}
-.page-topic .topic-list img{max-width:2.7rem;max-height:2.7rem;vertical-align: middle;}
 
+.piclist-item{background:#FCF7F4;border:1px solid #CBC9C5;text-align:center;display: block;margin-bottom:.2rem;}
+
+.page-topic{width:100%;height:100%;overflow: hidden;position:absolute;left:0;top:0;}
+.page-topic .intro{width:6.35rem;background: #FFFFD5;border:1px solid #FFBD7C;border-radius:4px;word-wrap: break-word;padding:.2rem;margin:.3rem auto;}
+.page-topic .topics-wrap{position:absolute;overflow: scroll;width:100%;height:100%;left:0;top:1.65rem;}
+.page-topic .topic-list{width:3.25rem;height:3.25rem;line-height:3.25rem;}
+.page-topic .topic-list img{max-width:2.7rem;max-height:2.7rem;vertical-align: middle;}
+.page-topic .topic-wrap{padding:0 .2rem;float:left;}
+
+.page-favs{width:100%;height:100%;overflow: hidden;position:absolute;left:0;top:0;}
+.page-favs .scroll-wrap{float: left;}
+.page-favs .favs-wrap{position:absolute;overflow: scroll;width:100%;height:100%;left:0;top:1rem;}
+.page-favs .piclist-item-wrap{width:2.2rem;height:3.1rem;float:left;margin-left: .2rem;text-align: center;}
+.page-favs .piclist-item{width:2.2rem;height:2.2rem;line-height: 2.2rem;margin-bottom:.15rem;}
+.page-favs .piclist-item img{max-width: 2rem;max-height: 2rem;vertical-align: middle;}
+.page-favs .piclist-item-wrap .btn{padding:3px 15px;}
+
+.page-accounts .uinfo{text-align:center;padding:.55rem 0 .4rem;background: #FBF7F2;border-bottom:1px solid #CDC8C5}
+.page-accounts .uinfo img{width:1.8rem;height:1.8rem;border-radius: 1.8rem;}
+.page-accounts .uinfo h5{font-weight: bold;font-size:.32rem;margin-top:.2rem;}
+.page-accounts .uinfo p{margin-top:.1rem;}
+.page-accounts .ufav{background:#FBF7F2;margin-top:.2rem;font-size:.3rem;font-weight:bold;border-top:1px solid #CDC8C5;border-bottom:1px solid #CDC8C5;height:.88rem;line-height: .88rem;display:block;padding-left:.4rem;}
+.page-accounts .ufav .font_family{color:#B4AFAC;font-size:.4rem;margin-right:.15rem;vertical-align: middle}
+.page-accounts .ufav label{vertical-align: middle}
+.page-accounts .more{text-align: center;padding-top:.55rem;}
+.page-accounts .h5pc-wrap{margin-top:.55rem;}
+.page-accounts .login-out{margin-top:2rem;color:#888382;display: block;text-align: center;font-size:.32rem;}
+
+.list-loading-more{width:100%;float:left;text-align:center;}
 .search-type{height:.73rem;width:100%;line-height: .73rem;text-align:center;position: fixed;border-bottom: 1px solid #CBC9C5;background:#FCF7F4}
 .page-search .triangle{margin-left: .16rem;margin-top:-4px;position: relative;top:-2px;}
 .search-bar{height:.73rem;width:100%;position: fixed;border-bottom: 1px solid #CBC9C5;background: #FCF7F4;}

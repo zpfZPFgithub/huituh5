@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Rem from '../../lib/rem';
+import utils from '../../lib/utils';
 import DetailHeader from '../../component/DetailHeader';
 import Alert from '../../component/Alert';
 import {connect} from 'react-redux';
@@ -7,6 +8,10 @@ import '../../styles/common.css'
 
 import * as action from '../../redux/actions/user';
 @connect(state=>{
+
+  if(state.user.code=="1" || utils.getCookie("userId")){
+    location.href = "#/home";
+  }
   return {
     code: state.user.code,
     msg: state.user.msg

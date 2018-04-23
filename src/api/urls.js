@@ -20,6 +20,10 @@ urls.getMobileCode = '/UserAjax/GetRegMobileSms'
 urls.login = '/UserAjax/LoginH5'
 
 // 展示简单个人信息数据
-urls.getShortUserInfo = '/UserAjax/GetShortUserInfo'
+urls.getFavs = '/FavAjax/MyFavPage'
+
+/*专题 */
+// 专题列表页数据
+urls.getTopicList = '/PicAjax/TopicPage'
 
 export default urls

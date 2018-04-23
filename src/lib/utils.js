@@ -66,6 +66,53 @@ let utils={
             utils.toZero(data.getMinutes()),
             utils.toZero(data.getSeconds())
         ].join(':')
+    },
+    getCookie: (key)=>{
+        // 读取cookie
+        var result = key ? undefined : {};
+        var cookies = document.cookie ? document.cookie.split('; ') : [];
+        for (var i = 0, l = cookies.length; i < l; i++) {
+            var parts = cookies[i].split('=');
+            var name = decodeURIComponent(parts.shift());
+            var cookie = decodeURIComponent(parts.join(''));
+            if (key && key === name) {
+                result = decodeURIComponent(cookie);
+                break;
+            }
+            if (!key) {
+                result[name] = cookie;
+            }
+        }
+        return result;
+    },
+    setCookie: (key, value, options) => {
+        options = options || {};
+        var expires = "";
+        if (typeof options.expires != 'undefined') {
+            expires = options.expires;
+            if (typeof options.expires == "number") {
+                expires = new Date();
+                expires.setTime(expires.getTime() + options.expires * 24 * 60 * 60 * 1000);
+            }
+        }
+        // 写入cookie
+        if (arguments.length > 1) {
+            return (document.cookie = [
+				encodeURIComponent(key), '=', encodeURIComponent(value),
+				'; expires=' + expires,
+				options.path ? ';path=' + options.path : '',
+				options.domain ? ';domain=' + options.domain : '',
+				options.secure ? ';secure' : '',
+            ].join(' '));
+        }
+        
+    },
+    removeCookie: (key, options) => {
+        if (utils.cookie(key) == undefined) {
+            return false;
+        }
+        utils.cookie(key, '', {...options, ...{expires: -1}});  
+        return !utils.cookie(key)
     }
 }
 

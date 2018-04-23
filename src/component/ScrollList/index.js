@@ -30,8 +30,12 @@ export default class ScrollList extends Component{
     }
     render(){
         return (
-            <div>
+            <div className="scroll-wrap">
                 {this.props.children}
+                <div>
+                    <div className="list-loading-more">{this.props.hasMore?"正在加载更多":""}</div>
+                    <div style={{height:this.props.holderHeight+"rem", float:"left"}}></div>
+                </div>
             </div>
         )
     }

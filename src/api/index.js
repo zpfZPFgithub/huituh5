@@ -8,7 +8,7 @@ const get = (option) => {
             method:option.type||'post',
             data:option.data||{},
             withCredentials:option.withCredentials || true,
-            timeout:8000,
+            timeout:60000,
             baseURL:option.baseURL,
         })
          axios({
@@ -16,7 +16,7 @@ const get = (option) => {
              method:option.type||'post',
              data:option.data||{},
              withCredentials:option.withCredentials || true,
-             timeout:8000,
+             timeout:60000,
              baseURL:option.baseURL,
          }).then((response)=>{
              // console.log(response)

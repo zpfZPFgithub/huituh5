@@ -10,16 +10,13 @@ import Reg from './pages/reg'
 import Search from './pages/search'
 import Fav from './pages/fav'
 import Detail from './pages/detail'
+import Accounts from './pages/accounts'
 import App from "./App";
 /**
  * Router是路由容器
  * Route代表一条的路由规则
  */
-const  NoMatch = () => (
-    <div>
-        <h3>404</h3>
-    </div>
-)
+
 
 //引用store
 import {Provider} from 'react-redux';
@@ -36,6 +33,7 @@ ReactDOM.render(
      <Route path="/topic/:id" component={Topic}/>
      <Route path="/fav" component={Fav}/>
      <Route path="/detail" component={Detail}/>
+     <Route path="/accounts" component={Accounts}/>
      <Redirect to="/home"/>
     </Switch>
   </Router>
